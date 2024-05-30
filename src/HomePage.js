@@ -54,7 +54,7 @@ const HomePage = () => {
             sx={{ mt: 3, mb: 2 }}
             onClick={handleSubmit}
           >
-            Enter
+            Enters
           </Button>
         </Box>
       </Paper>
