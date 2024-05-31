@@ -22,7 +22,7 @@ const filterConversation = (conversationData) => {
     } else if (conv.type === 'system') {
       for (const msg of conv.messages) {
         if (msg.message) {
-          const cleanMsg = msg.message.replace(/<[^>]*>/g, ''); // Remove HTML tags
+          const cleanMsg = msg.message.replace(/<[^>]*>/g, "'"); // Remove HTML tags
           systemReplies.push({ message: cleanMsg });
         }
         if (msg.cards) {
