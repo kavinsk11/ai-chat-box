@@ -22,7 +22,9 @@ const filterConversation = (conversationData) => {
     } else if (conv.type === 'system') {
       for (const msg of conv.messages) {
         if (msg.message) {
-          const cleanMsg = msg.message.replace(/<[^>]*>/g, "'"); // Remove HTML tags
+          const cleanMsg = msg.message
+            .replace(/&#39;/g, "'") // Replace &#39; with '
+            .replace(/<[^>]*>/g, ''); // Remove HTML tags
           systemReplies.push({ message: cleanMsg });
         }
         if (msg.cards) {
@@ -40,7 +42,6 @@ const filterConversation = (conversationData) => {
   return { userMessages, systemReplies };
 };
 
-// Main component to display the conversation
 // Main component to display the conversation
 const ConversationPage = () => {
   const { conversationId, storeId } = useParams();
@@ -141,3 +142,4 @@ const ConversationPage = () => {
 };
 
 export default ConversationPage;
+
